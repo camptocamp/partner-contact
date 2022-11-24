@@ -64,6 +64,16 @@ class TestResPartnerRefUnique(common.SavepointCase):
             )
         self.partner1.unlink()
 
+    def test_partner1_archived_new_partner_same_ref(self):
+        self.company.partner_ref_unique = "all"
+        self.partner1.write({"company_id": False, "ref": "same_ref"})
+        self.partner1.active = False
+        with self.assertRaises(ValidationError):
+            self.partner_obj.create(
+                {"name": "other", "ref": "same_ref", "company_id": self.company.id}
+            )
+        self.partner1.unlink()
+
     def test_check_ref_companies(self):
         self.company.partner_ref_unique = (
             "none"  # Ensure no constraint is applied at beginning
