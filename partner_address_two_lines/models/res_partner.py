@@ -9,8 +9,10 @@ class ResPartner(models.Model):
 
     def _get_contact_name(self, partner, name):
         if self.env.context.get("_two_lines_partner_address"):
-            return "{}\n {}".format(
-                partner.commercial_company_name or partner.sudo().parent_id.name, name
-            )
-        else:
-            return super()._get_contact_name(partner, name)
+            company_name = partner.commercial_company_name
+            partner_name = partner.name
+            if company_name and partner_name:
+                # Only display two lines if both values are found,
+                # otherwise revert to the standard behavior.
+                return "{}\n {}".format(company_name, partner_name)
+        return super()._get_contact_name(partner, name)
