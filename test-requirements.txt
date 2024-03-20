@@ -1,1 +1,2 @@
 odoo-test-helper
+odoo-addon-partner_stage @ git+https://github.com/OCA/partner-contact.git@refs/pull/1709/head#subdirectory=partner_stage
