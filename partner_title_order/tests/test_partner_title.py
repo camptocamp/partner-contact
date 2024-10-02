@@ -1,10 +1,10 @@
 # Copyright 2020 Camptocamp SA
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl)
 
-from odoo.tests.common import SavepointCase
+import odoo.tests.common as common
 
 
-class TestPartnerTitle(SavepointCase):
+class TestPartnerTitle(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -14,7 +14,7 @@ class TestPartnerTitle(SavepointCase):
         partner_titles = self.env["res.partner.title"].search([])
         self.assertEqual(
             partner_titles.mapped("name"),
-            partner_titles.sorted(lambda x: x.name).mapped("name"),
+            partner_titles.sorted(lambda x: (x.sequence, x.name)).mapped("name"),
         )
 
     def test_sequence_order(self):
