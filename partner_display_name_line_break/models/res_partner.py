@@ -30,6 +30,14 @@ class ResPartner(models.Model):
         super()._compute_display_name()
         if self.env.context.get("_two_lines_partner_address"):
             for partner in self:
+                # Do not split on two lines if name is empty as it would display
+                #  the address type on a new line in the report.
+                # This happens because Odoo splits the display_name on \n character
+                #  and discards the first element to get the address from the
+                #  display_name. In which case, the address type would appear as
+                #  part of the address.
+                if not partner.name and not self.env.context.get("_keep_partner_address_type"):
+                    continue
                 displayed_types = partner._complete_name_displayed_types
                 type_description = dict(
                     partner._fields["type"]._description_selection(partner.env)
