@@ -10,6 +10,6 @@
     "author": "Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/partner-contact",
     "depends": ["base_setup"],
-    "data": ["views/res_partner.xml"],
+    "data": ["views/res_partner.xml", "views/templates.xml"],
     "installable": True,
 }
