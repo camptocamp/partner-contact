@@ -62,6 +62,11 @@ Authors
 
 * Quartile Limited
 
+Contributors
+~~~~~~~~~~~~
+
+* Italo LOPES <italo.lopes@camptocamp.com>
+
 Maintainers
 ~~~~~~~~~~~
 
