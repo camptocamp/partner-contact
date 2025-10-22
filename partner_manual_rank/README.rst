@@ -1,7 +1,3 @@
-.. image:: https://odoo-community.org/readme-banner-image
-   :target: https://odoo-community.org/get-involved?utm_source=readme
-   :alt: Odoo Community Association
-
 ===================
 Partner Manual Rank
 ===================
@@ -17,7 +13,7 @@ Partner Manual Rank
 .. |badge1| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
     :target: https://odoo-community.org/page/development-status
     :alt: Beta
-.. |badge2| image:: https://img.shields.io/badge/license-AGPL--3-blue.png
+.. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fpartner--contact-lightgray.png?logo=github
@@ -35,6 +31,8 @@ Partner Manual Rank
 This module restores the functionality of <= 12.0 to set contacts as
 customer or vendor, and allows users to create custom filters on a more
 user-friendly manner.
+
+The module introduces also the setting to disable automatic ranking.
 
 **Table of contents**
 
@@ -69,6 +67,7 @@ Contributors
 - Luis González <lgonzalez@vauxoo.com>
 - Le Dinh Tien <tien-ld@komit-consulting.com>
 - Cai Hoang Huynh <huynh-ch@komit-consulting.com>
+- Maksym Yankin <maksym.yankin@camptocamp.com>
 
 Other credits
 -------------
