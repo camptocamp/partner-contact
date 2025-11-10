@@ -42,3 +42,20 @@ class TextPartnerExport(HttpCase):
             ),
             headers={"Content-Type": "application/json"},
         ).raise_for_status()
+
+    def test_export_get_fields_res_users(self):
+        """Test also the export of res.users"""
+        self.authenticate("admin", "admin")
+        self.url_open(
+            "/web/export/get_fields",
+            data=json.dumps(
+                {
+                    "params": {
+                        "model": "res.users",
+                        "import_compat": True,
+                        "domain": [("id", "in", self.env.user.ids)],
+                    }
+                }
+            ),
+            headers={"Content-Type": "application/json"},
+        ).raise_for_status()
