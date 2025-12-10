@@ -51,6 +51,8 @@ class TestResPartner(common.TransactionCase):
                 {"is_customer": True, "customer_rank": 1},
             ],
         )
+        with self.assertRaises(NotImplementedError):
+            self.env["res.partner"].search([("is_customer", "in", [True, False])])
 
     def test_02_is_supplier(self):
         partners = self.partner | self.partner_2
@@ -95,3 +97,5 @@ class TestResPartner(common.TransactionCase):
                 {"is_supplier": True, "supplier_rank": 1},
             ],
         )
+        with self.assertRaises(NotImplementedError):
+            self.env["res.partner"].search([("is_customer", "in", [True, False])])
