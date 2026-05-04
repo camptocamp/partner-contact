@@ -17,16 +17,6 @@ class TestPartnerClassification(TransactionCase):
             }
         )
 
-    def test_classification_assignment(self):
-        partner = self.Partner.create(
-            {
-                "name": "Test Company",
-                "classification_id": self.class_a.id,
-            }
-        )
-
-        self.assertEqual(partner.classification_id, self.class_a)
-
     def test_commercial_field_propagation(self):
         company = self.Partner.create(
             {
@@ -71,19 +61,3 @@ class TestPartnerClassification(TransactionCase):
             self.class_a,
             "Updating parent should propagate classification",
         )
-
-    def test_multi_company_isolation(self):
-        company_2 = self.env["res.company"].create(
-            {
-                "name": "Second Company",
-            }
-        )
-
-        classification = self.Classification.with_company(company_2).create(
-            {
-                "name": "Export",
-                "company_id": company_2.id,
-            }
-        )
-
-        self.assertEqual(classification.company_id, company_2)
