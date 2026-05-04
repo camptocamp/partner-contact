@@ -8,7 +8,10 @@ class ResPartner(models.Model):
     _inherit = "res.partner"
 
     classification_id = fields.Many2one(
-        "res.partner.classification", string="Classification", tracking=True
+        "res.partner.classification",
+        string="Classification",
+        tracking=True,
+        check_company=True,
     )
 
     def _commercial_fields(self):

@@ -16,7 +16,9 @@ class ResPartnerClassification(models.Model):
     active = fields.Boolean(default=True)
 
     company_id = fields.Many2one(
-        "res.company", default=lambda self: self.env.company, index=True
+        "res.company",
+        default=lambda self: self.env.company,
+        index=True,
     )
 
     _unique_code = models.Constraint(

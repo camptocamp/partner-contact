@@ -11,6 +11,7 @@
     "depends": ["contacts"],
     "data": [
         "security/ir.model.access.csv",
+        "security/partner_classification_security.xml",
         "views/res_partner_classification_views.xml",
         "views/res_partner_views.xml",
     ],
