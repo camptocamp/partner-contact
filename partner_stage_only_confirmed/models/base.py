@@ -43,7 +43,7 @@ class Base(models.AbstractModel):
                                 domain.append(("state", "=", "confirmed"))
                                 domain = str(domain)
                             node.set("domain", domain)
-            res["arch"] = etree.tostring(doc)
+            res["arch"] = etree.tostring(doc, encoding="unicode")
         return res
 
     @api.model
